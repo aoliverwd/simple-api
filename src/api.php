@@ -69,6 +69,15 @@ final class API
     }
 
     /**
+     * Set URL - Used for testing URL processing methods
+     * @param string $url
+     */
+    public static function setURL(string $url): void
+    {
+        self::$url_segments = Url::fromString($url);
+    }
+
+    /**
      * Register action
      * @param  string $action_name
      * @param  string $callback
@@ -164,7 +173,7 @@ final class API
      * @param  URLSegments $type [Index, Start, End]
      * @return int|string|null
      */
-    public static function getURLSegment(int $segmentIndex, URLSegments $type = URLSegments::Index): int|string|null
+    public static function getURLSegment(int $segmentIndex = 1, URLSegments $type = URLSegments::Index): int|string|null
     {
         return match ($type) {
             URLSegments::Index => method_exists(self::$url_segments, 'getSegment') ? self::$url_segments->getSegment($segmentIndex) : null,

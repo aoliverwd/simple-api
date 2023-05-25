@@ -1,0 +1,17 @@
+Endpoint (ConditionTests\Endpoint)
+ [x] Homepage endpoint
+ [x]  404 endpoint does not exist
+
+Query String (ConditionTests\QueryString)
+ [x] Query string with data set #0
+ [x] Query string with data set #1
+ [x] Query string with data set #2
+ [x] Query string with data set #3
+ [x] Query string with data set #4
+
+URLSegment (ConditionTests\URLSegment)
+ [x] Url segment with data set #0
+ [x] Url segment with data set #1
+ [x] Url segment with data set #2
+ [x] Url segment with data set #3
+
