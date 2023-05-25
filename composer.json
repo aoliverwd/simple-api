@@ -9,7 +9,7 @@
     "authors": [
         {
             "name": "Alex Oliver",
-            "homepage": "https://github.com/simple-api",
+            "homepage": "https://github.com/aoliverwd/simple-api",
             "role": "Lead"
         }
     ],
@@ -37,7 +37,8 @@
     },
     "scripts": {
         "test" : [
-            "./vendor/bin/phpstan analyse -c phpstan.neon"
+            "./vendor/bin/phpstan analyse -c phpstan.neon",
+            "@unit"
         ],
         "unit" : [
             "./vendor/bin/phpunit -c ./tests/phpunit.xml"
