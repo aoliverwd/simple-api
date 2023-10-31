@@ -2,8 +2,8 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" colors="true" testdox="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
     <coverage/>
     <testsuites>
-        <testsuite name="basic">
-            <directory>basic</directory>
+        <testsuite name="unit">
+            <directory>unit</directory>
         </testsuite>
     </testsuites>
     <logging>

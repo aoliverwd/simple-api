@@ -10,11 +10,8 @@ use Bramus\Router;
 require_once __DIR__ . '/enumerations.php';
 
 // API core class
-final class API
+class API
 {
-    // Set modules path
-    final public const PATH_MODULES = __DIR__ . '/modules/';
-
     /**
      * Registered actions
      * @var array<mixed>
