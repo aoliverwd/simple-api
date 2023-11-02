@@ -96,13 +96,14 @@ class API
     /**
      * Do action
      * @param  string $action_name
+     * @param  array<mixed> $args
      * @return void
      */
-    public static function doAction(string $action_name): void
+    public static function doAction(string $action_name, array $args = []): void
     {
         if (isset(self::$actions[$action_name]) && is_array(self::$actions[$action_name])) {
             foreach (self::$actions[$action_name] as $callable) {
-                call_user_func($callable);
+                call_user_func($callable, $args);
             }
         }
     }
@@ -139,6 +140,14 @@ class API
         if (count($data) > 0) {
             $body['data'] = $data;
         }
+
+        // Run before message display
+        self::doAction('before_message_display', [
+            'response_code' => $response_code,
+            'messages' => $messages,
+            'status' => $status,
+            'data' => $data
+        ]);
 
         http_response_code($response_code);
         header('Content-Type: application/json');
