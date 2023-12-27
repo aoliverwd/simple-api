@@ -19,6 +19,7 @@ enum Methods: string
     case PUT = 'put';
     case PATCH = 'patch';
     case DELETE = 'delete';
+    case OPTIONS = 'options';
 }
 
 enum URLSegments
