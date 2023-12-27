@@ -1,3 +1,8 @@
+Content Type (ConditionTests\ContentType)
+ [x] Content type json
+ [x] Content type text
+ [x] Content type html
+
 Endpoint (ConditionTests\Endpoint)
  [x] Homepage endpoint
  [x]  404 endpoint does not exist

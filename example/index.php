@@ -22,6 +22,7 @@ API::registerAction('modules_loaded', '\APIExample\registerRoutes');
 function registerRoutes(): void
 {
     API::registerRoute(Methods::GET, '/', '\APIExample\home');
+    API::registerRoute(Methods::GET, '/html', '\APIExample\html');
 }
 
 /**
@@ -32,6 +33,19 @@ function home(): never
 {
     API::sendMessage(
         messages: ['Awesome'],
+        status: Status::Success,
+        response_code: 200
+    );
+}
+
+/**
+ * Process API html endpoint
+ * @return never
+ */
+function html(): never
+{
+    API::sendMessage(
+        messages: ['<p>Awesome</p>'],
         status: Status::Success,
         response_code: 200
     );

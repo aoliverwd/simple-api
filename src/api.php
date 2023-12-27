@@ -150,8 +150,30 @@ class API
         ]);
 
         http_response_code($response_code);
-        header('Content-Type: application/json');
-        die(json_encode($body));
+
+        switch (self::getContentType()) {
+            case 'text':
+                header('Content-Type: text/plain');
+                echo implode('', $messages);
+                die;
+            case 'html':
+                header('Content-Type: text/html');
+                echo implode('', $messages);
+                die;
+            default:
+                header('Content-Type: application/json');
+                die(json_encode($body));
+        }
+    }
+
+    /**
+     * Get content type
+     * @return string
+     */
+    public static function getContentType(): string
+    {
+        $type = (string) self::getQuery('content_type');
+        return empty($type) ? 'json' : $type;
     }
 
     /**
