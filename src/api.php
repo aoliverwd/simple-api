@@ -53,7 +53,13 @@ class API
 
         // Run routes
         if (method_exists(self::$routes, 'run') && self::$route_count > 0) {
-            self::$url_segments = Url::fromString($_SERVER['REQUEST_URI']);
+            // Set URL segments
+            self::setURL($_SERVER['REQUEST_URI']);
+
+            // Before route run
+            self::doAction('before_route_run');
+
+            // Run route
             self::$routes->run();
         }
 
@@ -66,7 +72,7 @@ class API
     }
 
     /**
-     * Set URL - Used for testing URL processing methods
+     * Set URL
      * @param string $url
      */
     public static function setURL(string $url): void
