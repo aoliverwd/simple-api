@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class ContentTypeTest extends TestCase
 {
-    private const API_ENDPOINT = 'https://simple-api-local-dev.lndo.site/example/';
+    private const API_ENDPOINT = 'http://simple-api-local-dev.lndo.site/example/';
 
     public function testContentTypeJson(): void
     {
