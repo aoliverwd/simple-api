@@ -20,9 +20,9 @@ class API
 
     /**
      * Routes
-     * @var object
+     * @var Router\Router
      */
-    protected static object $routes;
+    protected static Router\Router $routes;
 
     /**
      * Registered route count
@@ -52,7 +52,7 @@ class API
         self::doAction('modules_loaded');
 
         // Run routes
-        if (method_exists(self::$routes, 'run') && self::$route_count > 0) {
+        if (self::$route_count > 0) {
             // Set URL segments
             self::setURL($_SERVER['REQUEST_URI']);
 
@@ -123,7 +123,7 @@ class API
      */
     public static function registerRoute(Methods $method, string $pattern, string $callback): void
     {
-        if (method_exists(self::$routes, $method->value) && method_exists(self::$routes, 'match')) {
+        if (method_exists(self::$routes, $method->value) && is_callable($callback)) {
             self::$routes->match($method->name, $pattern, $callback);
             self::$route_count += 1;
         }
