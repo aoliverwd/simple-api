@@ -2,7 +2,7 @@ name: simple-api-local-dev
 
 recipe: lamp
 config:
-  php: '8.1'
-  webroot: .
-  database: mariadb
-  composer_version: '2.2.12'
+    php: "8.1"
+    webroot: .
+    database: mariadb
+    composer_version: "2"
